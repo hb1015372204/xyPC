@@ -27,13 +27,15 @@ export default {
 }
 </script>
 
+
 <style lang="scss" scoped>
+.navActive{
+    border-bottom: none !important;
+}
 header{
     background-color: none;
     color: #fff;
 }
-.theader >>> .navActive{font-size:20px;border-bottom: 0 !important;}
-.theader /deep/ .navActive{font-size:20px;border-bottom: 0 !important;}
 .home{
     width:100%;
     height: 100%;
@@ -48,7 +50,7 @@ header{
 article{    
     width: 50%;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%,-50%);
 }

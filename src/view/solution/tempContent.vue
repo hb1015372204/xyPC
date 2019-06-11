@@ -3,7 +3,7 @@
         <p class="desc infoContent">{{contentData.desc}}</p>
         <ul class="">
             <li v-for="ite in contentData.data">
-                <img :src="ite.img" />
+                <div class="imgCon"><img :src="ite.img" class="anim_scale"/></div>
                 <h3>{{ite.title}}</h3>
                 <p class="infoContent">{{ite.content}}</p>
             </li>
@@ -38,7 +38,12 @@ export default {
     }
     li{
         width: 30%;box-sizing: border-box;margin:17px;
-        img{width: 100%;}
+        .imgCon{   
+             width: 100%;
+            height: 56%;
+            overflow: hidden;
+        }
+        // img{width: 100%;
     }
 }
 </style>

@@ -1,0 +1,18 @@
+/*Y轴翻转*/
+.anim_rotateY{
+    transform: rotateY(0deg);-webkit-transform: rotateY(0deg);
+    &:hover{
+        -webkit-transform:rotateY(360deg);
+        -moz-transform:rotateY(360deg);
+        -o-transform:rotateY(360deg);
+        transform:rotateY(360deg);
+        -webkit-transition:1s;
+        -moz-transition:1s;
+        -o-transition:1s;transition:1s;cursor:pointer;
+    }
+}
+/*缩放*/
+.anim_scale{
+    transition: all 0.5s;
+    &:hover{transform: scale(1.1); } 
+}

@@ -4,8 +4,7 @@
             <img :src="logoShow==0 ? opLogo : ptLogo"/>
         </div>
         <nav class="menuList">
-            <!-- :class="{'navActive' : index==menuVisible}" -->
-            <li v-for="(item,index) in menuList" @click="handleSelect(item,index)"  :class="{ 'navActive' : index==menuVisible}">{{item.title}}</li>
+            <li v-for="(item,index) in menuList" @click="handleSelect(item,index)"  :class="{'navActive' : index==menuVisible,'active' : index==0}">{{item.title}}</li>
         </nav>
     </header>
 </template>
@@ -42,6 +41,7 @@ export default {
         init(){
             for(let i in this.menuList){
                 this.$route.path == this.menuList[i].url ? this.menuVisible = i : ''
+                // if(this.$route.path == '/home'){}
             }
         },
         handleSelect(item,index){
@@ -53,10 +53,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.navActive{
-    color: $C43bee3;
-    border-bottom: 2px solid $C43bee3;
-}
+.active{border-bottom:none !important;}
+.navActive{color: $C43bee3;border-bottom: 2px solid $C43bee3;}
 header{
     width: 100%;
     height: 70px;

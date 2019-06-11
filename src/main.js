@@ -5,7 +5,11 @@ import App from './App'
 import router from './router'
 
 import './common/css/global.scss'
+import './common/css/pub_Animate.scss'
+
 import 'animate.css'
+import { WOW } from 'wowjs'
+new WOW({live: false}).init();
 
 Vue.config.productionTip = false
 

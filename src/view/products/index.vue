@@ -13,14 +13,14 @@
             <div class="abCont">
                 <div class="item" v-for="ite in proadvData.data">
                     <div class="info">
-                        <div class="infoImg infoImg_4"><img :src="ite.img"/></div>
+                        <div class="infoImg infoImg_4"><img :src="ite.img" class="anim_rotateY"/></div>
                         <div class="infoTitle">{{ite.title}}</div>
                     </div>
                     <p class="infoContent">{{ite.content}}</p>
                 </div>
             </div>
         </div>
-        <div class="content item_2 item_3">
+        <div class="content  item_3">
             <h3>{{deployData.typeName}}</h3>
             <div class="abCont">
                 <div class="item" v-for="ite in deployData.data">
@@ -118,7 +118,10 @@ h3{font-size: 24px;color: #353535;text-align: center;padding-bottom:20px;}
     p{font-size: 18px;}
 }
 .item_3{
-    .item {width: auto;}
+    .item{
+        width:auto;
+        padding:1%;
+    }
     .infoTitle{color: #353535;}
 }
 </style>

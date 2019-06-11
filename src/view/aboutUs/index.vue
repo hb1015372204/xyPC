@@ -23,7 +23,7 @@
             <div class="abCont">
                 <div class="item" v-for="ite in chooiceData.data">
                     <div class="info">
-                        <div class="infoImg infoImg_4"><img :src="ite.img"/></div>
+                        <div class="infoImg infoImg_4"><img :src="ite.img" class="anim_rotateY"/></div>
                         <div class="infoTitle">{{ite.title}}</div>
                     </div>
                     <p class="infoContent">{{ite.content}}</p>
