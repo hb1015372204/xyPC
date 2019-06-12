@@ -64,7 +64,7 @@ header{
     display: flex;
     justify-content: space-between;
 }
-.logo img{vertical-align: middle;}
+.logo img{vertical-align: middle;width:143px}
 .menuList{
     display: flex;
     font-size: 16px;
