@@ -124,17 +124,19 @@ export default {
             this.contentData=this.solutContData[0]
         },
         toggleNav(index){
-            this.bannerShow=false;
             setTimeout(()=>{
-                this.bannerShow=true;
-                document.documentElement.scrollTop = document.body.scrollTop=0;
-            },0)
+            this.bannerShow=true;
+            // setTimeout(()=>{
+            //     this.bannerShow=true;
+            //     document.documentElement.scrollTop = document.body.scrollTop=0;
+            // },0)
             this.tabActive=index;
             var solutContData=this.solutContData;
             for(let i in solutContData){
                 this.contentData=solutContData[index]
                 this.bannerData=this.solutbannerData[index];
             }
+            },10)
         }
     }
 }

@@ -52,5 +52,6 @@ export default {
     color: $C43bee3;
     position:fixed;right:4%;bottom:15%;
     cursor: pointer;
+    opacity: .8;
 }
 </style>

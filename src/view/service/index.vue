@@ -16,7 +16,7 @@
         </div>
       </article>
       <div class="item_2">
-        <div class="WOW bounceInLeft animated abCont">
+        <div class="wow bounceInLeft  abCont">
           <!-- <div class="bgImg"></div> -->
           <div class="opbg"></div>
           <div class="itemCont">
@@ -29,7 +29,7 @@
             </div>
           </div>
         </div>
-        <article class="WOW bounceInRight animated abCont2">
+        <article class="wow bounceInRight  abCont2">
           <p class="item animated fadeInLeft deplay-100ms" v-for="item in serviceData.rdata">
             <span>{{item.title}}</span>
             {{item.content}}
@@ -143,7 +143,16 @@ export default {
       }
     };
   },
-  mounted(){}
+  mounted(){
+      // var wow=new WOW({
+      //     boxClass:'wow',
+      //     animateClass:'animated',
+      //     offset:30,
+      //     mobile:true,
+      //     live:false
+      // })
+      // wow.init();
+  }
 };
 </script>
 
@@ -161,6 +170,7 @@ h3 {
     color: $fontC;
     line-height: 30px;
     flex: 4;
+    text-align: center;
   }
   .abCont {
     width: 50%;
