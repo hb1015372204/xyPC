@@ -43,7 +43,7 @@
             <h3>{{xyQualData.typeName}}</h3>
             <div class="abCont">
                 <div class="item" v-for = "ite in xyQualData.data">
-                    <img :src="ite.img"/>
+                    <img :src="ite.img" />
                     <div class="infoContent" v-html="ite.content"></div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="abCont">
                 <div class="item" v-for="ite in xycultureData.data">
                     <div class="info">
-                        <div class="infoImg infoImg_4"><img :src="ite.img"/></div>
+                        <div class="infoImg infoImg_4"><img :src="ite.img"  class="anim_rotateY"/></div>
                         <div class="infoTitle">{{ite.title}}</div>
                     </div>
                     <p class="infoContent">{{ite.content}}</p>
@@ -105,7 +105,8 @@ export default {
                 typeName:'新娱资质',
                 data:[
                     {img:require('../../assets/images/ax-1.jpg'),content:'中关村高新企业'},
-                    {img:require('../../assets/images/ax-2.jpg'),content:'大数据产业生态联盟成员'}
+                    {img:require('../../assets/images/ax-2.jpg'),content:'大数据产业生态联盟成员'},
+                    {img:require('../../assets/images/ax-3.jpg'),content:'信息安全管理体系认证'}
                 ]
             },
             xycultureData:{
