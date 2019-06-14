@@ -8,12 +8,13 @@
             </div>
             <div class="fromItem">
                 <label >电话：</label>
-                <input type="text" value="" v-model.trim = "info.phone" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                <input type="text" value="" v-model.trim = "info.mobile" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
             </div>
             <div class="fromItem">
                 <label>邮箱：</label>
                 <input type="email" value="" v-model.trim = "info.email"/>
             </div>
+            <div class="errorTip" v-show="errTipShow">{{errorTip}}</div>
             <button class="btnsubmit" @click="btnsubmit()">提交申请</button>
         </div>
         <div class="successInfo" v-show="isShow">
@@ -31,23 +32,52 @@ export default {
     data(){
         return{
             isShow:false,
+            errTipShow:false,//是否显示错误信息
+            errorTip:'',//错误提示
             info:{
                 name:'',
-                phone:'',
+                mobile:'',
                 email:''
             }
         }
     },
     methods:{
         btnsubmit(){
-            //手机号码
-            let regPhone=11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/;
-            if(this.info.phone == '' || !regPhone.test(this.info.phone)){console.log('手机号有误！')} 
             //邮箱
-            let refEmail=/^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$/;
-            if(this.info.email == '' || !regPhone.test(this.info.email)){console.log('邮箱有误！')} 
-
-            // this.isShow = true
+            var regEmail= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            //手机号码
+            let regMobile=11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/;
+            if(this.info.mobile == '' && this.info.email == ''){
+                this.errorTip='手机号和邮箱不能为空，请选填！';
+                this.errTipShow=true;
+                return;
+            }
+            if(this.info.email == '' || this.info.mobile != ''){//邮箱为空 手机号不为空 则验证
+                if(!regMobile.test(this.info.mobile)){
+                    this.errorTip='手机号有误！';
+                    this.errTipShow=true;
+                    return;
+                }
+            }
+            if(this.info.mobile == '' || this.info.email != ''){//手机号为空 邮箱不为空 则验证
+                if(!regEmail.test(this.info.email)){ //邮箱
+                    this.errorTip='邮箱有误！';
+                    this.errTipShow=true;
+                    return;
+                }
+            }
+            this.errTipShow=false;
+            let params=JSON.stringify(this.info)
+            this.$http({
+                method: 'post',
+                url:'/info_reception/',
+                data:params
+            }).then(res=>{  
+                this.isShow=true;//弹出成功的提示框
+            }).catch(err => {
+                console.log(err);
+            }); 
+            
         },
         btnClose(){
             this.isShow = false
@@ -125,5 +155,10 @@ h2{
         margin: 20px 0;
         border-radius: 5px;
     }
+}
+.errorTip{
+    color: #ce2e2e;
+    font-size: 12px;
+    text-align: left;
 }
 </style>
