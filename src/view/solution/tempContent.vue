@@ -7,6 +7,7 @@
                 <h3>{{ite.title}}</h3>
                 <p class="infoContent">{{ite.content}}</p>
             </li>
+            <li><!--空便于布局--></li>
         </ul>
     </div>
 </template>
@@ -34,16 +35,16 @@ export default {
         padding: 10px 0;
     }
     ul{margin: 3% auto;display: flex;flex-wrap: wrap;
-        // justify-content: space-around;
+        justify-content: space-around;
     }
     li{
         width: 30%;box-sizing: border-box;margin:17px;
         .imgCon{   
              width: 100%;
-            height: 56%;
+            height: 60%;
             overflow: hidden;
         }
-        // img{width: 100%;
+        img{width: 100%;}
     }
 }
 </style>

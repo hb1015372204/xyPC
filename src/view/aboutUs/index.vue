@@ -138,7 +138,7 @@ h3{font-size: 24px;color: #353535;text-align: center;padding-bottom:20px;}
 }
 .abCont{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;justify-content: space-around;
     .infoContent{color: $fontC;font-size: 14px;line-height: 24px;}
 }
 .item_1{

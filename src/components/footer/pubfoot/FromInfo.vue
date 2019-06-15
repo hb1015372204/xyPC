@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import qs from 'qs'
 export default {
     data(){
         return{
@@ -67,11 +68,11 @@ export default {
                 }
             }
             this.errTipShow=false;
-            let params=JSON.stringify(this.info)
+            // let params=JSON.stringify(this.info)
             this.$http({
                 method: 'post',
                 url:'/info_reception/',
-                data:params
+                data:qs.stringify(this.info)
             }).then(res=>{  
                 this.isShow=true;//弹出成功的提示框
             }).catch(err => {
@@ -80,7 +81,10 @@ export default {
             
         },
         btnClose(){
-            this.isShow = false
+            this.isShow = false;
+            this.info.name='';
+            this.info.mobile='';
+            this.info.email='';
         }
     }
 }
